@@ -17,10 +17,10 @@ called getEncodedUserInput and compare it to getEncodedComputerInput, I should b
 the outcomes of those functions and deternmine the score using function getScore */
 function getComputerChoice() {
 	const logComputerChoice = getEncodedComputerInput();
-        if (logComputerChoice === 0) {
+        if (logComputerChoice===0) {
             let computerChoice = "ROCK";
 		    return console.log(`Computer chose ${computerChoice}`);
-        } else if (logComputerChoice === 1) {
+        } else if (logComputerChoice===1) {
             let computerChoice = "PAPER";
 		    return console.log(`Computer chose ${computerChoice}`);
         } else if (logComputerChoice===2) {
@@ -62,15 +62,27 @@ function getEncodedUserInput() {
 		return encodeToNum = 3;
 	}
 }
+/*This is just a debugging code that I will comment out when the issues are resolved.
+It still seems to be choosing a random winner variable despite the getScore variable. */
+console.log("this is the encoded user input " + getEncodedUserInput());
+console.log("this is the encoded computer input " + getEncodedComputerInput());
 let userNum = getEncodedUserInput();
 let computerNum = getEncodedComputerInput();
 getUserInput();
 /*Remember that ROCK = 0 PAPER = 1 SCISSORS = 2 */
 function getScore() {
-	if (userNum === computerNum) {
-		return console.log("Great... a tie. Be more creative.")
+	let userScore=0;
+	let computerScore=0;
+	if (userNum == computerNum) {
+		return console.log("Great... a tie. Be more creative.");
+	} else if(userNum==1 && computerNum==0) {
+		return console.log("Wow, you actually got a point. Shocking.");
+	} else if(userNum==2 && computerNum==1){
+		return console.log("Are you cheating?");
+	} else if(userNum==0 && computerNum==2) {
+		return console.log("Yeah. Totally a valid win. Not rigged at all.")
 	} else {
-		return console.log("not a tie")
+		return console.log("HAHAHAHAH YOU SUCK")
 	}
 }
 getScore();
