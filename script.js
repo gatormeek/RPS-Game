@@ -24,8 +24,8 @@ let getEncodedComputerInput = function() {
 /*This second function serves as a user input function. This simply prompts the user for an input,
 then stores that input for later comparison in our scoring function.*/
 //get the user choice and return the output string
-let userChoice=prompt("Choose Your Fighter! OPTIONS: ROCK, PAPER, SCISSORS: ").toUpperCase();
-let getEncodedUserChoice = function() {
+let getEncodedUserChoice = function(userChoice) {
+	let userChoice=prompt("Choose Your Fighter! OPTIONS: ROCK, PAPER, SCISSORS: ").toUpperCase();
 	if (userChoice=="ROCK") {
 		console.log(`You chose: ROCK`);
 		return userChoice;
@@ -85,11 +85,7 @@ let runGameScore=function() {
 	return totalScore;
 }
 
-do {
-	userChoice;
-	getRoundScore();
-	runGameScore();
-} while (totalScore<6);
+
 /*this seems to work. Now I just have to make sure the user input is requested and completed 
 I have a total number of rounds equal to 5*/
 /*let toGameStop=function() {
