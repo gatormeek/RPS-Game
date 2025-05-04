@@ -1,88 +1,100 @@
+/*This first function serves two purposes: first to generate a random number, then to assign
+that random number to "ROCK" "PAPER" or "SCISSORS" and print the results to the console. */
+//set a random number between 0 and 2 to the output rock paper or scissors
+let getEncodedComputerInput = function() {
+	let ranNum=Math.floor(Math.random()*3)
+		if (ranNum==0) {
+			let computerChoice="ROCK";
+			//console.log(ranNum)
+			console.log(`Computer chose: ${computerChoice}`)
+			return computerChoice;
+		} else if (ranNum==1) {
+			let computerChoice="PAPER";
+			//console.log(ranNum)
+			console.log(`Computer chose: ${computerChoice}`)
+			return computerChoice;
+		} else {
+			let computerChoice="SCISSORS";
+			//console.log(ranNum)
+			console.log(`Computer chose: ${computerChoice}`)
+			return computerChoice;
+		}
+}
 
-//This is a rock-paper-scissors game that will run in the console only. 
-
-/*
-COMPUTER INPUT: Should return a random num between 0-3, 0 = rock 1 = paper 2 = scissors
-*/
-/*This specific function just returns the value of a random number between 0 and 3*/ 
-function getEncodedComputerInput() {
-	return Math.floor(Math.random()*3);
-}
-/*This one just sets that random number to a value of ROCK PAPER or SCISSORS... how do I make 
-sure I'm comparing the values against the user input properly? Likely by encoding the userInput
-in the same way. The strings won't ever be equivalent, because I want the console to log 
-"Computer choice: X" and "User choice: Y" which means the strings aren't equivalent, even if 
-both outcomes are "ROCK". The encoded value might be the same though, so if I create a function
-called getEncodedUserInput and compare it to getEncodedComputerInput, I should be able to compare
-the outcomes of those functions and deternmine the score using function getScore */
-function getComputerChoice() {
-	const logComputerChoice = getEncodedComputerInput();
-        if (logComputerChoice===0) {
-            let computerChoice = "ROCK";
-		    return console.log(`Computer chose ${computerChoice}`);
-        } else if (logComputerChoice===1) {
-            let computerChoice = "PAPER";
-		    return console.log(`Computer chose ${computerChoice}`);
-        } else if (logComputerChoice===2) {
-            let computerChoice = "SCISSORS"
-		    return console.log(`Computer chose ${computerChoice}`);
-        }
-}
-let computerPlay = getComputerChoice();
-/*
-This is the User input section. This should prompt user input and 
-compare it to the computer input to return a value of “Wow, you
- actually won. I’m shocked.” or “Don't quit your day job.”
-*/
-let userInput= prompt("Choose Your Fighter! OPTIONS: ROCK, PAPER, SCISSORS").toUpperCase();
-let getUserInput=function() {
-    if (userInput==("ROCK")) {
-        return console.log(`You chose ${userInput}`);
-	} else if (userInput==("PAPER")) {
-		return console.log(`You chose ${userInput}`);
-	} else if (userInput==("SCISSORS")) {
-		return console.log(`You chose ${userInput}`);
-	} else {
-        return console.log(`${userInput} is not a valid input, you absolute donkey. Point for the computer!`)
-    }
-}
-/*3 is for that situation where the user inputs something invalid, I will make this give a point
-to the computer later on. I mean, you can't exactly let that count as a tie, can you? It's got 
-to count as a point against you. I'm probably not supposed to make notes have this much 
-personality but I think it makes the reading of the code more fun. */
-let encodeToNum=userInput;
-function getEncodedUserInput() {
-	if (encodeToNum=="ROCK") {
-		return encodeToNum = 0;
-	} else if (encodeToNum=="PAPER") {
-		return encodeToNum = 1;
-	} else if (encodeToNum=="SCISSORS") {
-		return encodeToNum = 2;
-	} else {
-		return encodeToNum = 3;
+/*This second function serves as a user input function. This simply prompts the user for an input,
+then stores that input for later comparison in our scoring function.*/
+//get the user choice and return the output string
+let userChoice=prompt("Choose Your Fighter! OPTIONS: ROCK, PAPER, SCISSORS: ").toUpperCase();
+let getEncodedUserChoice = function() {
+	if (userChoice=="ROCK") {
+		console.log(`You chose: ROCK`);
+		return userChoice;
+	} else if (userChoice=="PAPER") {
+		console.log(`You chose: PAPER`)
+		return userChoice;
+	} else if (userChoice=="SCISSORS") {
+		console.log(`You chose: SCISSORS`)
+		return userChoice;
 	}
 }
-/*This is just a debugging code that I will comment out when the issues are resolved.
-It still seems to be choosing a random winner variable despite the getScore variable. */
-console.log("this is the encoded user input " + getEncodedUserInput());
-console.log("this is the encoded computer input " + getEncodedComputerInput());
-let userNum = getEncodedUserInput();
-let computerNum = getEncodedComputerInput();
-getUserInput();
-/*Remember that ROCK = 0 PAPER = 1 SCISSORS = 2 */
-function getScore() {
-	let userScore=0;
-	let computerScore=0;
-	if (userNum == computerNum) {
-		return console.log("Great... a tie. Be more creative.");
-	} else if(userNum==1 && computerNum==0) {
-		return console.log("Wow, you actually got a point. Shocking.");
-	} else if(userNum==2 && computerNum==1){
-		return console.log("Are you cheating?");
-	} else if(userNum==0 && computerNum==2) {
-		return console.log("Yeah. Totally a valid win. Not rigged at all.")
+//call the functions so they actually run and rename them to store the results
+let getUserChoice=getEncodedUserChoice();
+//^this one seems like it may return the whole string "You chose: x" but it actually just returns x
+let getComputerChoice=getEncodedComputerInput();
+
+/*This is our first scoring function. This will compare the scores for each round to determine 
+the winner.*/
+//this one returns the winner or tie string, but otherwise doesn't count the number of wins
+let getRoundScore=function() {
+	if (getUserChoice===getComputerChoice) {
+		console.log("Round tie!")
+		return "Round tie!";
+	} else if ((getUserChoice==="ROCK") && (getComputerChoice==="SCISSORS")) {
+		console.log("You win this round!")
+		return "You win this round!";
+	} else if ((getUserChoice==="PAPER") &&(getComputerChoice==="ROCK")) {
+		console.log("You win this round!")
+		return "You win this round!";
+	}else if ((getUserChoice==="SCISSORS") && (getComputerChoice==="PAPER")) {
+		console.log("You win this round!")
+		return "You win this round!";
 	} else {
-		return console.log("HAHAHAHAH YOU SUCK")
+		console.log("Computer wins this round!")
+		return "Computer wins this round!";
 	}
 }
-getScore();
+//stores the win or tie string...could the above function be more useful?
+let roundScore=getRoundScore();
+/*if I put runGameScore(userScore, computerScore) then declare the variables below it gets mad
+at me and tells me the variables have already been declared. This must mean that the interior
+variables in the "function()" declaration are effectively constants.*/
+//declaring variables outside the function creates an infinite loop for some reason.
+let runGameScore=function() {
+	userScore=0;
+	computerScore=0;
+	totalScore=0;
+	if (roundScore==="Round tie!") {
+		return (++userScore + ++computerScore)
+	} else if (roundScore==="You win this round!") {
+		++userScore;
+	} else if (roundScore==="Computer wins this round!") {
+		++computerScore;
+	}
+	console.log(`User Score: ${userScore}, Computer Score: ${computerScore}`);
+	totalScore = userScore + computerScore;
+	return totalScore;
+}
+
+do {
+	userChoice;
+	getRoundScore();
+	runGameScore();
+} while (totalScore<6);
+/*this seems to work. Now I just have to make sure the user input is requested and completed 
+I have a total number of rounds equal to 5*/
+/*let toGameStop=function() {
+	do {
+		runGameScore(userScore, computerScore, totalScore);
+	} while (totalScore<6)
+}
+toGameStop(); */
