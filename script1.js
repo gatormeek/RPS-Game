@@ -23,20 +23,33 @@ let getEncodedComputerChoice= function(computerNum) {
  let getUserChoice = function(userChoice) {
 	let userInput=prompt("Choose Your Fighter! OPTIONS: ROCK, PAPER, SCISSORS: ");
 	userChoice=userInput.toUpperCase();
-    console.log(`You chose: ${userChoice}`);
-    return userChoice;
+    if (userChoice=="ROCK") {
+        console.log(`You chose: ${userChoice}`);
+        return userChoice;
+    } else if (userChoice=="PAPER") {
+        console.log(`You chose ${userChoice}`);
+        return userChoice;
+    } else if (userChoice=="SCISSORS") {
+        console.log(`You chose ${userChoice}`);
+        return userChoice;
+    } else {
+        console.log(`"${userChoice}" isn't a valid input, weirdo. Point goes to the computer.`);
+        return userChoice;
+    }
 }
 function playGame() {
     let userScore=0;
     let computerScore=0;
     function playRound(userChoice, computerChoice) {
         if (userChoice===computerChoice) {
-            console.log("Great...a tie.");
+            console.log("Great...a tie. Be more creative next time.");
+            userScore++;
+            computerScore++;
         } else if ((userChoice=="ROCK" && computerChoice=="SCISSORS")||(userChoice=="SCISSORS" && computerChoice=="PAPER")||(userChoice=="PAPER" && computerChoice=="ROCK")) {
-            console.log("You win!");
+            console.log("Wow, you actually won. That's a shock.");
             userScore++;
         } else {
-            console.log("You lose");
+            console.log("HAHAHAHA YOU LOST! YOU SUCK!");
             computerScore++;
         }
     }
@@ -47,6 +60,13 @@ function playGame() {
     console.log("Number of rounds complete: " + playRoundCount);
     console.log("Your score: " + userScore);
     console.log("Computer score: " + computerScore);
+    }
+    if (userScore>computerScore) {
+        console.log("You must have cheated. Computer wins. LOSER.")
+    } else if (computerScore>userScore) {
+        console.log("Yeah, that's what I thought. You're a LOSER.")
+    } else {
+        console.log("Seriously? A tie? Tie goes to the computer. Computer always wins, you loser.")
     }
 }
 playGame();
