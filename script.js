@@ -1,7 +1,3 @@
-
-//------------------------------------------------------------------------------------------------
-
-
 let getComputerChoice = function(arr) {
     arr=["ROCK","PAPER","SCISSORS"];
     const randomNum = [Math.floor(Math.random()*arr.length)];
@@ -10,44 +6,39 @@ let getComputerChoice = function(arr) {
 
  //get rid of this once you have a playRound function
 
-let getUserChoice = function(userChoice) {
+let getChoices = function(userChoice,computerChoice) {
     rock.onclick = () => {
         userChoice = "ROCK";
         console.log(`You chose: ${userChoice}`);
-        const computerChoice = getComputerChoice();
+        computerChoice = getComputerChoice();
         console.log(`Computer chose: ${computerChoice}`);
     }
     paper.onclick = () => {
         userChoice = "PAPER";
         console.log(`You chose ${userChoice}`);
-        const computerChoice = getComputerChoice();
+        computerChoice = getComputerChoice();
         console.log(`Computer chose: ${computerChoice}`);
     }
     scissors.onclick = () => {
         userChoice = "SCISSORS";
         console.log(`You chose ${userChoice}`);
-        const computerChoice = getComputerChoice();
+        computerChoice = getComputerChoice();
         console.log(`Computer chose: ${computerChoice}`);
     } 
+    
  }
 
-rock.addEventListener("click", getUserChoice());
-paper.addEventListener("click", getUserChoice());
-scissors.addEventListener("click", getUserChoice());
+rock.addEventListener("click", getChoices());
+paper.addEventListener("click", getChoices());
+scissors.addEventListener("click", getChoices());
 
-/*let playRound = function() {
-    let userChoice=getUserChoice();
-    let computerChoice=getComputerChoice();
-    if (userChoice===computerChoice) {
-        console.log("Tie");
-    } if (userChoice==="ROCK" && computerChoice==="SCISSORS") {
-        console.log("You win");
-    } if (userChoice==="SCISSORS" && computerChoice==="PAPER") {
-        console.log("You win");
-    } if (userChoice==="PAPER" && computerChoice==="ROCK") {
-        console.log("You win");
-    } else {
-        console.log("You lose");
+let playRound = function() {
+    if (getChoices("PAPER","PAPER")) {
+        console.log("tie");
+    } else if (getChoices("ROCK","ROCK")) {
+        console.log("tie");
+    } else if (getChoices("SCISSORS","SCISSORS")) {
+        console.log("tie");
     }
 }
-playRound(); */
+playRound();
