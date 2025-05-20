@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-.ROCK, .PAPER, .SCISSORS {
+#ROCK, #PAPER, #SCISSORS {
     display:flex;
     height: 75px;
     width:75px;
