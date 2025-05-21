@@ -7,21 +7,28 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="welcome-message">CHOOSE YOUR CHARACTER!</div>
-        <div id="decision-container">
-            <p id="button-container">
-                <button class="ROCK-btn"><img id="ROCK" src="./imgs/rock.png"></button>
-                <button class="PAPER-btn"><img id="PAPER" src="./imgs/paper.png"></button>
-                <button class="SCISSORS=btn"><img id="SCISSORS" src="./imgs/scissors.png"></button>
-            </p>
+        <div id="game-container">
+            <div id="welcome-message">CHOOSE YOUR CHARACTER!</div>
+            <div id="decision-container">
+                <p id="button-container">
+                    <button class="ROCK-btn"><img id="ROCK" src="./imgs/rock.png"></button>
+                    <button class="PAPER-btn"><img id="PAPER" src="./imgs/paper.png"></button>
+                    <button class="SCISSORS=btn"><img id="SCISSORS" src="./imgs/scissors.png"></button>
+                </p>
+            </div>
+            <div id="text-block">
+                <div id="user-play"></div>
+                <div id="computer-play"></div>
+                <div id="result"></div>
+                <div id="ties">
+                    <p id="ties-count"></p>
+                </div>
+                <div id="computer-score"></div>
+                <div id="user-score"></div>
+            </div>
         </div>
-        </div>
-        <div id="user-play"></div>
-        <div id="computer-play"></div>
-        <div id="result"></div>
-        <div id="computer-score"></div>
-        <div id="user-score"></div>
         <div id="game-result"></div>
+        <button id="restart-game"></button>
         <script src="script.js"></script>
     </body>
 </html>
