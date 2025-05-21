@@ -1,6 +1,5 @@
 body {
     background-image:url(background-img.jpg);
-    background-repeat: no-repeat;
 }
 #welcome-message, #game-result {
     display:flex;
@@ -36,11 +35,11 @@ body {
 #SCISSORS {
     background-color: red;
 }
+
 button {
     border:none;
     padding:0;
     border-radius:15px;
-
 }
 
 #user-play, #computer-play, #result, #ties, #computer-score, #user-score, #game-result {
@@ -52,4 +51,16 @@ button {
     color:yellow;
 }
 
+#restart-button {
+    display: flex;
+    background-color: orange;
+    font-size: 50px;
+    font-weight: 900;
+    justify-content: center;
+}
+
+#restart {
+    display:none;
+    justify-content: center;
+}
 

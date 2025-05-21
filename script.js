@@ -1,7 +1,7 @@
 let playerSelection;
 const gameContainer=document.querySelector('#game-container');
 const decisionContainer=document.querySelector('#decision-container');
-const restartGame=document.querySelector('#restart-game');
+const restartGame=document.querySelector('#restart');
 decisionContainer.addEventListener('click', (event) => {
     if (event.target.id==='ROCK') {
         playerSelection=event.target.id;
@@ -58,6 +58,7 @@ function playRound(playerSelection) {
 let checkGameComplete = function() {
     if (userScore===5 || computerScore===5) {
         gameContainer.style.display = 'none';
+        restartGame.style.display = 'flex';
         if (userScore>computerScore) {
             return document.querySelector('#game-result').textContent="You win!";
         } else {
@@ -66,7 +67,8 @@ let checkGameComplete = function() {
     }
 }
 
-let restart = function (userScore, computerScore) {
-    userScore=0;
-    computerScore=0;
-}
+restartGame.addEventListener('click', () => {
+    userScore = 0;
+    computerScore = 0;
+    ties = 0;
+})
