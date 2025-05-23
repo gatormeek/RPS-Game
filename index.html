@@ -9,25 +9,32 @@
     <body>
         <div id="game-container">
             <div id="welcome-message">CHOOSE YOUR CHARACTER!</div>
-            <div id="decision-container">
-                <p id="button-container">
-                    <button class="ROCK-btn"><img id="ROCK" src="./imgs/rock.png"></button>
-                    <button class="PAPER-btn"><img id="PAPER" src="./imgs/paper.png"></button>
-                    <button class="SCISSORS=btn"><img id="SCISSORS" src="./imgs/scissors.png"></button>
-                </p>
-            </div>
-            <div id="text-block">
-                <div id="user-play"></div>
-                <div id="computer-play"></div>
-                <div id="result"></div>
-                <div id="ties">
-                    <p id="ties-count"></p>
+            <div id="center-container">
+                <div id="decision-container">
+                    <p id="button-container">
+                        <button class="ROCK-btn"><img id="ROCK" src="./imgs/rock.png"></button>
+                        <button class="PAPER-btn"><img id="PAPER" src="./imgs/paper.png"></button>
+                        <button class="SCISSORS=btn"><img id="SCISSORS" src="./imgs/scissors.png"></button>
+                    </p>
                 </div>
-                <div id="computer-score"></div>
+            </div>
+            <div id="ties"></div>
+            <div id="result"></div>
+            <div id="left-container">
+                <div id="user-play"></div>
                 <div id="user-score"></div>
             </div>
+            <div id="right-container">
+                <div id="computer-play"></div>
+                <div id="computer-score"></div>
+            </div>
         </div>
-        <div id="game-result"></div>
+        <div id="game-result">
+            <div id="game-result-actual"></div>
+            <div id="game-over-computer-score"></div>
+            <div id="game-over-user-score"></div>
+            <div id="game-over-ties"></div>
+        </div>
         <div id="restart">
             <button id="restart-button">Restart Game</button>
         </div>
