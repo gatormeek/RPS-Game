@@ -46,13 +46,13 @@ function playRound(playerSelection) {
         (playerSelection==='PAPER' && computerSelection==='ROCK') ||
         (playerSelection==='SCISSORS' && computerSelection==='PAPER')) {
             document.querySelector('#ties').textContent='';
-            result='You win';
+            result='Wow, you acutally won. I\'m shocked.';
             userScore++;
             checkGameComplete();
 
         } else {
             document.querySelector('#ties').textContent='';
-            result='You lose';
+            result='That\s what I thought. You lose.';
             computerScore++;
             checkGameComplete();
         }
